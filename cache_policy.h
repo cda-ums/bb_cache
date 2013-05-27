@@ -1,5 +1,5 @@
 template<class K, class V, class Compare=std::less(K)> 
-	class CachePolicyUMap {
+	class LRUCachePolicy {
 		typedef K key_type;
 		typedef V value_type;
 		typedef std::unordered_map<key_type, value_type, Compare>::iterator iterator
@@ -16,10 +16,10 @@ template<class K, class V, class Compare=std::less(K)>
 
 	};
 template<class K, class V, class Compare=std::less(K)>
-	class CachePolicyMap {
+	class TTLCachePolicy {
 	typedef K key_type;
 	typedef V value_type;
-	typedef std::map<key_type, value_type, Compare>::iterator iterator
+	typedef std::unordered_map<key_type, value_type, Compare>::iterator iterator
 	public:
 		iterator insert(const key_type& key, const value_type& value);
 		value_type get(const key_type& key);
